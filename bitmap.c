@@ -57,7 +57,8 @@ int set_bit(
     }
     size_t byteOffset = index / 8;
     size_t bitOffset = index % 8;
-    if (bit) {
+    if (bit)
+    {
         (bitmap->data)[byteOffset] |= 1 << bitOffset;
     }
     else {
