@@ -2,7 +2,8 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-typedef struct {
+typedef struct
+{
     uint8_t* data;
     size_t size;
     size_t size_bytes;

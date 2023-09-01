@@ -33,7 +33,8 @@ bit_t get_bit(
         bitmap_t *bitmap,
         size_t index)
 {
-    if (index >= bitmap->size) {
+    if (index >= bitmap->size)
+    {
         return 2;
     }
     size_t byteOffset = index / 8;
@@ -46,10 +47,12 @@ int set_bit(
         size_t index,
         bit_t bit)
 {
-    if (index >= bitmap->size) {
+    if (index >= bitmap->size)
+    {
         return 2;
     }
-    if (bit > 1) {
+    if (bit > 1)
+    {
         return 3;
     }
     size_t byteOffset = index / 8;
