@@ -3,4 +3,6 @@ project(bitmap C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(bitmap bitmap.c)
+add_executable(bitmap main.c
+        bitmap.c
+        bitmap.h)
