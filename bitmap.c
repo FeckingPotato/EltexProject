@@ -8,6 +8,8 @@ typedef struct {
     size_t sizeBytes;
 } Bitmap;
 
+typedef uint8_t bit_t;
+
 Bitmap *initBitmap(size_t size) {
     Bitmap *result = (Bitmap*) malloc(sizeof (Bitmap));
     if (result == NULL) {
@@ -32,9 +34,46 @@ void destroyBitmap(Bitmap *bitmap) {
     free(bitmap);
 }
 
+bit_t getBit(Bitmap *bitmap, size_t index) {
+    if (index >= bitmap->size) {
+        return 2;
+    }
+    size_t byteOffset = index / 8;
+    size_t bitOffset = index % 8;
+    return ((bitmap->data)[byteOffset] & (1 << bitOffset)) != 0;
+}
+
+int setBit(Bitmap *bitmap, size_t index, bit_t bit) {
+    if (index >= bitmap->size) {
+        return 2;
+    }
+    if (bit > 1) {
+        return 3;
+    }
+    size_t byteOffset = index / 8;
+    size_t bitOffset = index % 8;
+    if (bit) {
+        (bitmap->data)[byteOffset] |= 1 << bitOffset;
+    }
+    else {
+        (bitmap->data)[byteOffset] &= ~(1 << bitOffset);
+    }
+    return 0;
+}
+
 int main() {
     Bitmap *bitmap = initBitmap(13);
     printf("Created a bitmap with a size of 13\n");
+    setBit(bitmap, 0, 1);
+    setBit(bitmap, 8, 1);
+    setBit(bitmap, 10, 1);
+    printf("Set the following bits to 1: 0, 8, 10\n");
+    printf("Bits:\n"
+           "0: %u\n"
+           "5: %u\n"
+           "8: %u\n"
+           "10: %u\n",
+           getBit(bitmap, 0), getBit(bitmap, 5), getBit(bitmap, 8), getBit(bitmap, 10));
     destroyBitmap(bitmap);
     printf("Destroyed the bitmap\n");
 }
