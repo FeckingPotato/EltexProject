@@ -5,4 +5,5 @@ set(CMAKE_C_STANDARD 11)
 
 add_executable(bitmap main.c
         bitmap.c
-        bitmap.h)
+        bitmap.h
+        bitmap_struct.h)

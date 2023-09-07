@@ -1,12 +1,7 @@
 #include "bitmap.h"
+#include "bitmap_struct.h"
 #include <stdio.h>
 
-struct bitmap
-{
-    uint8_t *data;
-    size_t size;
-    size_t size_bytes;
-};
 
 bitmap_t *bitmap_init(size_t size)
 {
