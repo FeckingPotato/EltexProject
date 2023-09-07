@@ -74,3 +74,11 @@ int set_bit(
     }
     return 0;
 }
+
+size_t bitmap_size(bitmap_t *bitmap) {
+    return bitmap->size;
+}
+
+size_t bitmap_size_bytes(bitmap_t *bitmap) {
+    return bitmap->size_bytes;
+}

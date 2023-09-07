@@ -18,3 +18,7 @@ int set_bit(
     bitmap_t *bitmap,
     size_t index,
     bit_t bit);
+
+size_t bitmap_size(bitmap_t *bitmap);
+
+size_t bitmap_size_bytes(bitmap_t *bitmap);
