@@ -41,7 +41,7 @@ bit_t get_bit(
     }
     size_t byteOffset = index / 8;
     size_t bitOffset = index % 8;
-    return ((bitmap->data)[byteOffset] & (1 << bitOffset)) != 0;
+    return ((bitmap->data)[byteOffset] & (1 << (8 - bitOffset))) != 0;
 }
 
 int set_bit(
@@ -61,11 +61,11 @@ int set_bit(
     size_t bitOffset = index % 8;
     if (bit)
     {
-        (bitmap->data)[byteOffset] |= 1 << bitOffset;
+        (bitmap->data)[byteOffset] |= 1 << (8 - bitOffset);
     }
     else
     {
-        (bitmap->data)[byteOffset] &= ~(1 << bitOffset);
+        (bitmap->data)[byteOffset] &= ~(1 << (8 - bitOffset));
     }
     return 0;
 }
