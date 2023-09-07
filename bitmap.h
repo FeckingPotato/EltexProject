@@ -4,7 +4,7 @@
 
 typedef struct bitmap bitmap_t;
 
-typedef uint8_t bit_t;
+typedef _Bool bit_t;
 
 bitmap_t *bitmap_init(size_t size);
 
