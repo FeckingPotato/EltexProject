@@ -1,10 +1,12 @@
 #include "bitmap.h"
+#include "comp/comp_test.h"
 #include <stdio.h>
 
 int main()
 {
     bitmap_t *bitmap = bitmap_init(13);
-    printf("Created a bitmap with a size of 13\n");
+    printf("Testing basic functions:\n"
+           "Created a bitmap with a size of 13\n");
     set_bit(bitmap, 0, 1);
     set_bit(bitmap, 8, 1);
     set_bit(bitmap, 10, 1);
@@ -16,5 +18,7 @@ int main()
            "10: %u\n",
            get_bit(bitmap, 0), get_bit(bitmap, 5), get_bit(bitmap, 8), get_bit(bitmap, 10));
     bitmap_destroy(bitmap);
-    printf("Destroyed the bitmap\n");
+    printf("Destroyed the bitmap\n"
+           "\n");
+    comp_test();
 }
