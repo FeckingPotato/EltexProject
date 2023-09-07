@@ -2,12 +2,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-typedef struct
-{
-    uint8_t *data;
-    size_t size;
-    size_t size_bytes;
-} bitmap_t;
+typedef struct bitmap bitmap_t;
 
 typedef uint8_t bit_t;
 

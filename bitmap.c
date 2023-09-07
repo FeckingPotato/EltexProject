@@ -1,6 +1,13 @@
 #include "bitmap.h"
 #include <stdio.h>
 
+struct bitmap
+{
+    uint8_t *data;
+    size_t size;
+    size_t size_bytes;
+};
+
 bitmap_t *bitmap_init(size_t size)
 {
     bitmap_t *bitmap = (bitmap_t *) malloc(sizeof(bitmap_t));
