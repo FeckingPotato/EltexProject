@@ -3,7 +3,7 @@
 
 bitmap_t *bitmap_init(size_t size)
 {
-    bitmap_t *bitmap = (bitmap_t*) malloc(sizeof (bitmap_t));
+    bitmap_t *bitmap = (bitmap_t *) malloc(sizeof(bitmap_t));
     if (bitmap == NULL)
     {
         perror("unable to allocate memory for the bitmap");
@@ -12,7 +12,7 @@ bitmap_t *bitmap_init(size_t size)
 
     bitmap->size = size;
     bitmap->size_bytes = (size + 7) / 8;
-    bitmap->data = (uint8_t*) calloc(bitmap->size_bytes, sizeof(uint8_t));
+    bitmap->data = (uint8_t *) calloc(bitmap->size_bytes, sizeof(uint8_t));
 
     if (bitmap->data == NULL)
     {
@@ -30,8 +30,8 @@ void bitmap_destroy(bitmap_t *bitmap)
 }
 
 bit_t get_bit(
-        bitmap_t *bitmap,
-        size_t index)
+    bitmap_t *bitmap,
+    size_t index)
 {
     if (index >= bitmap->size)
     {
@@ -43,9 +43,9 @@ bit_t get_bit(
 }
 
 int set_bit(
-        bitmap_t *bitmap,
-        size_t index,
-        bit_t bit)
+    bitmap_t *bitmap,
+    size_t index,
+    bit_t bit)
 {
     if (index >= bitmap->size)
     {
@@ -61,7 +61,8 @@ int set_bit(
     {
         (bitmap->data)[byteOffset] |= 1 << bitOffset;
     }
-    else {
+    else
+    {
         (bitmap->data)[byteOffset] &= ~(1 << bitOffset);
     }
     return 0;
