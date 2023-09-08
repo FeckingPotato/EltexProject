@@ -93,9 +93,9 @@ int bitmap_more(
         for (size_t i = 0; i < 8; i++)
         {
             bit_t cur_bit_a =
-                (((first_bitmap->data)[last_full_byte] & (1 << i)) != 0);
+                (((first_bitmap->data)[last_full_byte] & (1 << (7 - i))) != 0);
             bit_t cur_bit_b =
-                (((second_bitmap->data)[last_full_byte] & (1 << i)) != 0);
+                (((second_bitmap->data)[last_full_byte] & (1 << (7 - i))) != 0);
             if (cur_bit_a > cur_bit_b)
             {
                 return 1;

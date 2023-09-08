@@ -61,11 +61,11 @@ int set_bit(
     size_t bitOffset = index % 8;
     if (bit)
     {
-        (bitmap->data)[byteOffset] |= 1 << (8 - bitOffset);
+        (bitmap->data)[byteOffset] |= 1 << (7 - bitOffset);
     }
     else
     {
-        (bitmap->data)[byteOffset] &= ~(1 << (8 - bitOffset));
+        (bitmap->data)[byteOffset] &= ~(1 << (7 - bitOffset));
     }
     return 0;
 }
