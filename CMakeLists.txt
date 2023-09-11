@@ -9,6 +9,8 @@ add_executable(bitmap main.c
         bitmap_struct.h
         comp/comp.c
         comp/comp.h
+        print/print.c
+        print/print.h
         comp/comp_test.c
         comp/comp_test.h
         copy_clone/copy_clone.c
