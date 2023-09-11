@@ -1,5 +1,5 @@
 #include "../bitmap_struct.h"
-#include "bitmap.h"
+#include "print.h"
 #include <stdio.h>
 
 /* Designed for bitmaps no more than 4 GB */
